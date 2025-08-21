@@ -21,9 +21,11 @@ function App() {
     })
 
     response = await response.json();
+    let dataString = response.candidates[0].content.parts[0].text;
+    dataString = dataString.split("* ");
 
-    console.log(response.candidates[0].content.parts[0].text);
-    // setResult(response.candidates[0].content.parts[0].text)
+    console.log(dataString);
+    setResult(response.candidates[0].content.parts[0].text)
   }
 
   return (
