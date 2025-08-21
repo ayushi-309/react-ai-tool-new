@@ -23,6 +23,7 @@ function App() {
     response = await response.json();
     let dataString = response.candidates[0].content.parts[0].text;
     dataString = dataString.split("* ");
+    dataString = dataString.map((item)=> item.trim());
 
     console.log(dataString);
     setResult(response.candidates[0].content.parts[0].text)
