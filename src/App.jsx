@@ -1,11 +1,12 @@
-import './App.css'
+
 import { useState } from 'react'
+import './App.css'
 import { URL } from './constants'
 
 function App() {
 
   const [question, setQuestion] = useState("");
-  const [result, setResult] = useState(undefined);
+  const [result, setResult] = useState("");
 
   const payload ={
     "contents" : [{
@@ -20,8 +21,9 @@ function App() {
     })
 
     response = await response.json();
-    // console.log(response.candidates[0].content.parts[0].text);
-    setResult(response.candidates[0].content.parts[0].text)
+
+    console.log(response.candidates[0].content.parts[0].text);
+    // setResult(response.candidates[0].content.parts[0].text)
   }
 
   return (
