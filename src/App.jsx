@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import './App.css'
 import { URL } from './constants'
+import Answer from './components/Answers';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
         <div className='container h-110 overflow-scroll'>
           <div className='text-white'>
             {result}
+            <Answer answers/>
+
           </div>
             
         </div>
