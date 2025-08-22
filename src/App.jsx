@@ -41,7 +41,7 @@ function App() {
               {/* {result} */}
               {
                 result && result.map((item, index) => (
-                  <li><Answer ans={item} key={index} /></li>
+                  <li className=''><Answer ans={item} key={index} /></li>
                 ))
               }
             </ul>
