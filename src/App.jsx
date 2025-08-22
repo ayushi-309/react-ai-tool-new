@@ -38,8 +38,12 @@ function App() {
       <div className='col-span-4 p-10'>
         <div className='container h-110 overflow-scroll'>
           <div className='text-white'>
-            {result}
-            <Answer answers/>
+            {
+            result && result.map((item,index)=>(
+            <Answer ans={item} key={index}/>
+            ))
+            }
+
 
           </div>
             
