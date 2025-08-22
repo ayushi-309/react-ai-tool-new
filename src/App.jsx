@@ -9,9 +9,9 @@ function App() {
   const [question, setQuestion] = useState("");
   const [result, setResult] = useState("");
 
-  const payload ={
-    "contents" : [{
-      "parts" : [{"text": {question}}]
+  const payload = {
+    "contents": [{
+      "parts": [{ "text": { question } }]
     }]
   }
 
@@ -24,7 +24,7 @@ function App() {
     response = await response.json();
     let dataString = response.candidates[0].content.parts[0].text;
     dataString = dataString.split("* ");
-    dataString = dataString.map((item)=> item.trim());
+    dataString = dataString.map((item) => item.trim());
 
     console.log(dataString);
     setResult(response.candidates[0].content.parts[0].text)
@@ -33,24 +33,25 @@ function App() {
   return (
     <div className='grid grid-cols-5 h-screen text-center'>
       <div className='col-span-1 bg-zinc-800'>
-       hello
       </div>
       <div className='col-span-4 p-10'>
         <div className='container h-110 overflow-scroll'>
           <div className='text-white'>
-            {
-            result && result.map((item,index)=>(
-            <Answer ans={item} key={index}/>
-            ))
-            }
-
+            <ul>
+              {/* {result} */}
+              {
+                result && result.map((item, index) => (
+                  <li><Answer ans={item} key={index} /></li>
+                ))
+              }
+            </ul>
 
           </div>
-            
+
         </div>
         <div className='bg-zinc-800 w-1/2 p-1 pr-5 text-white m-auto rounded-4xl border border-zinc-700 flex h-16'>
-            <input type = "text" value={question} onChange={(event)=>setQuestion(event.target.value)} className='w-full h-full p-3 outline-none' placeholder='Ask me anything' />
-            <button onClick={askQuestion}>Ask</button>
+          <input type="text" value={question} onChange={(event) => setQuestion(event.target.value)} className='w-full h-full p-3 outline-none' placeholder='Ask me anything' />
+          <button onClick={askQuestion}>Ask</button>
         </div>
 
       </div>
