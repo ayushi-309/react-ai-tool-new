@@ -1,16 +1,17 @@
 import { useEffect} from "react";
 
-const Answer = ({ ans, key }) => {
 
-    const Answer = (({ ans, key }) => {
+
+    const Answer = ({ ans, key }) => {
 
         useEffect(() => {
-            console.log(ans, key);
+            console.log(ans,checkHeading(ans));
+            
         }, [])
-    })
+    
 
     function checkHeading(str) {
-        return /^(\*)(\*)|(\*)&/.test(str)
+        return /^(\*)(\*)(.*)\*$/.test(str)
     }
 
     return (
