@@ -1,14 +1,17 @@
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 
 
 
-    const Answer = ({ ans, key }) => {
+const Answer = ({ ans, key }) => {
+    const [heading, setHeading] = useState(false)
 
-        useEffect(() => {
-            console.log(ans,checkHeading(ans));
-            
-        }, [])
-    
+    useEffect(() => {
+        if (checkHeading(ans)) {
+            setHeading(true)
+        }
+
+    }, [])
+
 
     function checkHeading(str) {
         return /^(\*)(\*)(.*)\*$/.test(str)
@@ -17,6 +20,7 @@ import { useEffect} from "react";
     return (
         <>
             {ans}
+            {heading?<span className="py-5 block">{ans}</span>:<span>{ans}</span>}
         </>
     )
 }
